@@ -22,6 +22,8 @@ public class CountdownEvent : MonoBehaviour
 
     private bool triggerFlag = false;
 
+    public bool isPause = false;
+
     private void Start()
     {
         Reset();
@@ -30,7 +32,7 @@ public class CountdownEvent : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (isActiveAndEnabled)
+        if (isActiveAndEnabled && !isPause)
         {
             if (clock > 0)
             {
@@ -64,5 +66,19 @@ public class CountdownEvent : MonoBehaviour
     {
         clock = timeIntervals[currIndex];
         triggerFlag = false;
+    }
+
+    public void pause()
+    {
+        if (!isPause) {
+            isPause = true;
+        }
+    }
+
+    public void resume()
+    {
+        if (isPause) {
+            isPause = false;
+        }
     }
 }

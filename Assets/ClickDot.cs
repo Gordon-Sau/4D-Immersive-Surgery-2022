@@ -29,7 +29,7 @@ public class ClickDot : MonoBehaviour
         Debug.Log("Dot gets triggered by pointer");
         isClicked = !isClicked;
         if (isClicked) {
-            dotRenderer.material.SetColor("_Color", Color.red);
+            dotRenderer.material.SetColor("_Color", Color.blue);
             lineMaker.addPoint(this.transform);
         } else {
             cancelClick();
